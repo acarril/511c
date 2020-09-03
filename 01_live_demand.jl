@@ -19,23 +19,30 @@ Then we keep asking:
 
 >What if the price was $2? Or $4? Or $6? Or $8? ...
 
-We fill the array until the quantity demanded is 0.
+We keep asking until the quantity demanded is 0.
 "
 
 # ╔═╡ f99509b0-ed46-11ea-2cd3-773b6df84b6a
 # Array of demanded quantities given prices 0, 2, 4, 6, 8, ...
-q = [28, 24, 16, 10, 3, 1, 0];
+q = [];
+
+# ╔═╡ 5778e5fc-ee18-11ea-15c9-d78d790df5a1
+next_price = [0; 2:2:2*length(q)][end];
+
+# ╔═╡ 89110400-ee18-11ea-166b-5dcc65b5aca2
+md"#### --> How many would buy a slice if the price was \$$next_price?"
 
 # ╔═╡ 2bd8305a-ed47-11ea-1fc6-dfafdfce9c82
 # Generate array of prices starting from 0 and then following exp2().
 # p = [0; exp2.(0:length(q)-2)];
-p = 0:2:2*length(q)-1
+p = 0:2:2*length(q)-1;
 
 # ╔═╡ 4f7bf618-ed47-11ea-3994-f5a527501359
 # Plot the corresponding demand curve
 begin
 	using Plots
-	plot(q, p, xticks = q, yticks = p, label = "511c's demand for pizza slices")
+	plot(q, p, xticks = q, yticks = p, label = "")
+	title!("511c's demand for pizza slices")
 	xlabel!("Quantity (of pizza slices)")
 	ylabel!("Price (per pizza slice)")
 end
@@ -100,6 +107,8 @@ Not anymore.
 # ╔═╡ Cell order:
 # ╟─558e8cd6-ed4d-11ea-3573-df3ded1e403e
 # ╟─c67a4320-ed4d-11ea-237a-d1fb457661d1
+# ╟─5778e5fc-ee18-11ea-15c9-d78d790df5a1
+# ╟─89110400-ee18-11ea-166b-5dcc65b5aca2
 # ╠═f99509b0-ed46-11ea-2cd3-773b6df84b6a
 # ╟─2bd8305a-ed47-11ea-1fc6-dfafdfce9c82
 # ╠═4f7bf618-ed47-11ea-3994-f5a527501359
