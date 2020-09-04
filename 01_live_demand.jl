@@ -24,7 +24,7 @@ We keep asking until the quantity demanded is 0.
 
 # ╔═╡ f99509b0-ed46-11ea-2cd3-773b6df84b6a
 # Array of demanded quantities given prices 0, 2, 4, 6, 8, ...
-q = [];
+q = [18, 15, 5, 0];
 
 # ╔═╡ 5778e5fc-ee18-11ea-15c9-d78d790df5a1
 next_price = [0; 2:2:2*length(q)][end];
@@ -35,7 +35,7 @@ md"#### --> How many would buy a slice if the price was \$$next_price?"
 # ╔═╡ 2bd8305a-ed47-11ea-1fc6-dfafdfce9c82
 # Generate array of prices starting from 0 and then following exp2().
 # p = [0; exp2.(0:length(q)-2)];
-p = 0:2:2*length(q)-1;
+p = 0:2:2*length(q)-1
 
 # ╔═╡ 4f7bf618-ed47-11ea-3994-f5a527501359
 # Plot the corresponding demand curve
@@ -83,7 +83,7 @@ and then compare the approximation to the real one:"
 
 # ╔═╡ 8b7f54e0-ed52-11ea-1d88-d9dfbe4758bb
 # Define functional form for quantity 'q' as a function input 'x' (it's going to be price later)
-q_fun(x) = 25 - 5*x/2;
+q_fun(x) = 16 - 5*x/2;
 
 # ╔═╡ 1f705464-ed51-11ea-01a3-0352ad446169
 # Plot empirical demand curve (same as above) and overlay (with the '!' modifier) a plot of the approximated demand curve
@@ -110,7 +110,7 @@ Not anymore.
 # ╟─5778e5fc-ee18-11ea-15c9-d78d790df5a1
 # ╟─89110400-ee18-11ea-166b-5dcc65b5aca2
 # ╠═f99509b0-ed46-11ea-2cd3-773b6df84b6a
-# ╟─2bd8305a-ed47-11ea-1fc6-dfafdfce9c82
+# ╠═2bd8305a-ed47-11ea-1fc6-dfafdfce9c82
 # ╠═4f7bf618-ed47-11ea-3994-f5a527501359
 # ╟─b49adfa6-ed55-11ea-3cb2-73ec7ecfcea5
 # ╟─d65d5724-ed53-11ea-2573-71e016c67613
