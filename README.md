@@ -1,5 +1,3 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/acarril/511c_notebooks/master)
+# 511c - Microeconomic Analysis for Policymakers (Advanced)
 
-# 511c Pluto (and other) notebooks
-
-Use the [launch binder](https://mybinder.org/v2/gh/acarril/511c_notebooks/master) button above to lunch this repository
+This is the repository for class material. All the code bit are written in (Julia)[https://julialang.org/], and the interactive notebooks are developed with (Pluto)[https://github.com/fonsp/Pluto.jl].
