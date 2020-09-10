@@ -3,16 +3,21 @@ using Random
 using StatsBase
 Random.seed!(511)
 
+# Boston mechanism function
 function boston_mechanism(G, C, P)
-    print("\n Starting new call....\n")
+    println("Starting new call....\n")
     A = Dict()
-    unassigned = [i for i in G]
     step = 0
+    
+    # Repeat algorithm as long as there are unassigned groups, counting the steps
     while length(A) < length(G)
         step += 1
         println("step: $step")
+
+        # Go through every option
         for (option, capacity) in enumerate(C)
             print("option: $(option - 1), ")
+            
             # Check capacity of option
             try
                 global n_assigned_option = sum(i -> i == option - 1, values(A))
@@ -26,21 +31,21 @@ function boston_mechanism(G, C, P)
                 print("A is empty, ")
                 global n_assigned_option = 0
             end
-
-            # Now collect candidates
+            
+            # If not at capacity, go through groups to collect candidates for current option
             is_candidate = []
             for (group, name) in enumerate(G)
-                # Skip if assigned
+                # Skip group if already assigned
                 if name in keys(A)
                     push!(is_candidate, 0)
                     continue
                 end
-                # Else extract choice and add candidate if choice is equal to current option
+                # Else extract choice and mark as candidate if choice is equal to current option
                 choice = P[group, step]
                 push!(is_candidate, Int(choice == option - 1))
             end
-
-            # Collect candidates for this option as indices
+            
+            # Compute and collect indices of candidates for current option
             candidates = findall(x -> x == 1, is_candidate)
             print("candidates: $candidates, ")
             
@@ -66,9 +71,9 @@ function boston_mechanism(G, C, P)
             for each in chosen
                 merge!(A, Dict(G[each] => option - 1))
             end
-            println("A now is: $A\n")
+            println("A now is: $A")
         end
-        print("######################\n\n\n")
+        println("#"^40)
     end
     return(A)
 end
