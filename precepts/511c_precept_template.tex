@@ -1,0 +1,56 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{bbm}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+% \epstopdfsetup{outdir=../../figs/}
+
+% \usepackage[backend=bibtex, style=authoryear, defernumbers=true, doi=false, url=false, isbn=false]{biblatex}
+%     \renewbibmacro{in:}{}
+%     \AtEveryBibitem{\clearfield{month}}
+%     \AtEveryBibitem{\clearfield{day}}
+%     \addbibresource{StudentLoansChoices.bib}
+%     \setbeamertemplate{bibliography item}{}
+
+\setbeamertemplate{section in toc}[sections numbered]
+
+% Define blind footnote (no marker)
+\newcommand\blfootnote[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
+}
+
+% Increase item sep
+\let\OLDitemize\itemize
+\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{.5\baselineskip}}
+
+% Automatically add section slide
+\AtBeginSection[]{
+  \begin{frame}[noframenumbering, plain, c]
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+% Remove navigation buttons and add page numbers
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+% Title matter
+\title{Precept X: TOPIC}
+\author{Álvaro Carril\thanks{\url{acarril@princeton.edu}}}
+\institute{511c - Microeconomics \\ Princeton University}
+
+\begin{document}
+
+\begin{frame}[noframenumbering, plain, c]
+  \maketitle
+\end{frame}
+
+\end{document}
