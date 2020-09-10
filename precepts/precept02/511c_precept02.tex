@@ -1,0 +1,70 @@
+\documentclass[10pt]{beamer}
+
+\usepackage{bbm}
+\usepackage{graphicx}
+\graphicspath{{figs/}}
+% \epstopdfsetup{outdir=../../figs/}
+
+% \usepackage[backend=bibtex, style=authoryear, defernumbers=true, doi=false, url=false, isbn=false]{biblatex}
+%     \renewbibmacro{in:}{}
+%     \AtEveryBibitem{\clearfield{month}}
+%     \AtEveryBibitem{\clearfield{day}}
+%     \addbibresource{StudentLoansChoices.bib}
+%     \setbeamertemplate{bibliography item}{}
+
+\setbeamertemplate{section in toc}[sections numbered]
+
+% Define blind footnote (no marker)
+\newcommand\blfootnote[1]{%
+    \begingroup
+    \renewcommand\thefootnote{}\footnote{#1}%
+    \addtocounter{footnote}{-1}%
+    \endgroup
+}
+
+% Increase item sep
+\let\OLDitemize\itemize
+\renewcommand\itemize{\OLDitemize\addtolength{\itemsep}{.5\baselineskip}}
+
+% Automatically add section slide
+\AtBeginSection[]{
+  \begin{frame}[noframenumbering, plain, c]
+  \vfill
+  \centering
+  \begin{beamercolorbox}[sep=8pt,center,shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par%
+  \end{beamercolorbox}
+  \vfill
+  \end{frame}
+}
+
+% Remove navigation buttons and add page numbers
+\beamertemplatenavigationsymbolsempty
+\setbeamertemplate{footline}[frame number]
+
+% Title matter
+\title{Precept X: TOPIC}
+\author{Álvaro Carril\thanks{\url{acarril@princeton.edu}}}
+\institute{511c - Microeconomics \\ Princeton University}
+
+\begin{document}
+
+\begin{frame}[noframenumbering, plain, c]
+    \maketitle
+\end{frame}
+
+\begin{frame}[t]{Problem: Weed}
+    % Ch.2, ex.2 (p14)
+    The US federal government is thinking of implementing a tax on the nascent recreational marijuana market, dubbed the ``Mary Jane Tax'' (Bernie calls it the MJ Tax, for short).
+    You are tasked with estimating the price elasticity of demand and supply, which are key inputs to the design of the policy, as they would allow you to forecast the estimated tax revenue for different tax levels.
+    Since there's not enough data in the US, you collect data from Uruguay, which legalized marijuana in December 2013.
+\end{frame}
+
+\begin{frame}[t]{Problem: Cigarettes}
+    % Ch.2, ex.7 (p22)
+    In 1998, Americans smoked 23.5 billion packs of cigarettes, which had an average retail price of \$2.
+    Studies have shown that the price elasticity of demand for cigarettes is \(-0.4\), and the price elasticity of supply is \(0.5\).
+    Using this information, \emph{and any other assumptions you deem necessary}, derive the demand and supply curves for the cigarette market.
+\end{frame}
+
+\end{document}
