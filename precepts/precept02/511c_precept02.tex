@@ -1,8 +1,9 @@
 \documentclass[10pt]{beamer}
 
-\usepackage{bbm}
+% \usepackage{bbm}
 \usepackage{graphicx}
 \graphicspath{{figs/}}
+\usepackage{booktabs}
 % \epstopdfsetup{outdir=../../figs/}
 
 % \usepackage[backend=bibtex, style=authoryear, defernumbers=true, doi=false, url=false, isbn=false]{biblatex}
@@ -43,28 +44,117 @@
 \setbeamertemplate{footline}[frame number]
 
 % Title matter
-\title{Precept X: TOPIC}
+\title{Precept 2 \\ Demand \& Supply, pt. 2}
 \author{Álvaro Carril\thanks{\url{acarril@princeton.edu}}}
 \institute{511c - Microeconomics \\ Princeton University}
 
 \begin{document}
 
 \begin{frame}[noframenumbering, plain, c]
-    \maketitle
+  \maketitle
 \end{frame}
 
-\begin{frame}[t]{Problem: Weed}
-    % Ch.2, ex.2 (p14)
-    The US federal government is thinking of implementing a tax on the nascent recreational marijuana market, dubbed the ``Mary Jane Tax'' (Bernie calls it the MJ Tax, for short).
-    You are tasked with estimating the price elasticity of demand and supply, which are key inputs to the design of the policy, as they would allow you to forecast the estimated tax revenue for different tax levels.
-    Since there's not enough data in the US, you collect data from Uruguay, which legalized marijuana in December 2013.
+\begin{frame}[t]{Problem 1: Weed}
+  % Ch.2, ex.2 (p14)
+  The US federal government is thinking of implementing a tax on the nascent recreational marijuana market, dubbed the ``Mary Jane Tax'' (Bernie calls it the MJ Tax, for short).
+  You are tasked with estimating the price elasticity of demand and supply, which are key inputs to the design of the policy, as they would allow you to forecast the estimated tax revenue for different tax levels.
+  Since there's not enough data in the US, you collect data from Uruguay, which legalized marijuana in December 2013. The information is presented below.%
+  \footnote{The standard unit is half an ounce, for some reason. Ask Americans.}
+
+  \begin{table}
+    \begin{tabular}{ccc}
+      \toprule
+      Price (USD) & Demand (millions) & Supply (millions) \\
+      \midrule
+      60 & 22 & 14 \\
+      80 & 20 & 16 \\
+      100 & 18 & 18 \\
+      120 & 16 & 20 \\
+      \bottomrule
+    \end{tabular}
+  \end{table}
 \end{frame}
 
-\begin{frame}[t]{Problem: Cigarettes}
+\begin{frame}[t]
+  \begin{itemize}
+    \item[a.] Compute the price elasticity of demand when the price is \$80 and when the price is \$100. Interpret your results.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{itemize}
+    \item[b.] Compute the price elasticity of supply when the price is \$80 and when the price is \$100.
+    Interpret your results. 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{itemize}
+    \item[c.] What are the equilibrium price and quantity?
+    Now suppose the US government is planning on setting a price ceiling of \$80. What consequences will this have on the local market? Clearly state any assumptions you make.
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]{Problem 2: Cigarettes}
     % Ch.2, ex.7 (p22)
     In 1998, Americans smoked 23.5 billion packs of cigarettes, which had an average retail price of \$2.
     Studies have shown that the price elasticity of demand for cigarettes is \(-0.4\), and the price elasticity of supply is \(0.5\).
     Using this information, \emph{and any other assumptions you deem necessary}, derive the demand and supply curves for the cigarette market.
+\end{frame}
+
+\begin{frame}[t]{Comments}
+  \begin{enumerate}
+    \item Suppose that an unusually contagious virus causes the demand curve for face masks to shift. What do you predict will happen in the short and long run to prices and quantity?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Comments}
+  \begin{enumerate}
+    \item[2.] If a 3-percent increase in the price of corn flakes causes a 6-percent decline in the quantity demanded, what is the elasticity of demand?
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Comments}
+  \begin{enumerate}
+    \item[3.] Explain the difference between a shift in the supply curve and a movement along the supply curve.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Comments}
+  \begin{enumerate}
+    \item[4.] Explain why for many goods, the long-run price elasticity of supply is larger than the short-run elasticity.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}[t]{Bonus Problem: Netherlands agriculture}
+  Much of the demand for Dutch agricultural output comes from other countries.
+  In 2019, the total demand for potatoes was estimated to be
+  \begin{equation*}
+    Q_{td} = 3244 - 283 P.
+  \end{equation*}
+  Of this, total domestic demand was
+  \begin{equation*}
+    Q_{dd} = 1700 - 107 P,
+  \end{equation*}
+  and domestic supply was
+  \begin{equation*}
+    Q_{ds} = 1944 + 207 P.
+  \end{equation*}
+  Suppose that after the 2020 recession the demand for potatoes falls by 40\%.
+\end{frame}
+
+\begin{frame}[t]
+  \begin{itemize}
+    \item[a.] Dutch farmers are concerned about this drop in export demand.
+    What happens to the free-market price of potatoes in The Netherlands? Do farmers need to worry? 
+  \end{itemize}
+\end{frame}
+
+\begin{frame}[t]
+  \begin{itemize}
+    \item[b.] Now suppose the Dutch government is planning to buy enough potatoes to raise the price to \$3.5 per sack.
+    With the drop in export demand, how much potatoes would the government have to buy to achieve this target, and how much would it cost it? 
+  \end{itemize}
 \end{frame}
 
 \end{document}
