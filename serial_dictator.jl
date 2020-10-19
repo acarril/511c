@@ -2,10 +2,8 @@
 using Random
 Random.seed!(511)
 
-
 ### Data
 
-# Groups which already presented/commented
 groups_presented = Set(["λ", "γ", "δ"])
 groups_commented = Set(["ι", "τ", "ϕ"])
 
@@ -36,42 +34,43 @@ dates_prefs = Dict(
 
 ### Functions
 
-# Assign one unassigned group to one unassigned preference
-function assign_group(group, preferences, A_old, skip_topic = nothing)
+# Assign an option to a group given preferences
+function assign_option(group, preferences, A, skip_options)
     # Skip group if already assigned
-    if group in keys(A_old)
-        return -1
+    if group in keys(A)
+        return 0
     else
-        for topic in setdiff(get(preferences, group, 0), [skip_topic])
-            if topic in values(A_old)
+        for option in setdiff(get(preferences, group, 0), skip_options)
+            if option in values(A)
                 continue
             else
-                return(topic)
+                return(option)
             end
         end
     end
 end
 
-# Random Serial Dictator
-function serial_dictator(preferences, pre_assignmnent = nothing)
+# Random Serial Dictator algorithm
+function serial_dictator(preferences, pre_assignment = nothing)
     A = Dict()
     groups = preferences |> keys |> collect |> shuffle
-    println("Group shuffle is $groups")
-    
+    println("Group order: $groups")
+    # Loop through groups
     for group in groups
-        # Skip any pre-assigned preference
-        if !isnothing(pre_assignmnent)
-            skip_topic = get(pre_assignmnent, group, nothing)
+        # Skip options not in the previous assignment or assigned to the same group
+        if !isnothing(pre_assignment)
+            pre_unassigned_options = setdiff(get(preferences, group, 0), collect(values(pre_assignment)))
+            skip_options = [pre_unassigned_options; get(pre_assignment, group, 0)]
         else
-            skip_topic = nothing
+            skip_options = [nothing]
         end
 
-        # Assign topic to group
-        topic = assign_group(group, preferences, A, skip_topic)
-        if topic == -1
+        # Assign an option to group
+        option = assign_option(group, preferences, A, skip_options)
+        if option == 0
             continue
         else
-            merge!(A, Dict(group => topic))
+            merge!(A, Dict(group => option))
         end
     end
     return(A)
@@ -85,7 +84,7 @@ topic_prefs_present = filter(p -> p.first ∉ groups_presented, topic_prefs)
 topic_prefs_comment = filter(p -> p.first ∉ groups_commented, topic_prefs)
 dates_prefs_present = filter(p -> p.first ∉ groups_presented, dates_prefs)
 
-# Compute groups
+# Compute assignments
 selected_present = serial_dictator(topic_prefs_present)
 selected_comment = serial_dictator(topic_prefs_comment, selected_present)
 selected_dates = serial_dictator(dates_prefs_present)
